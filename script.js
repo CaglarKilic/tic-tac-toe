@@ -91,9 +91,11 @@ const game = (function () {
         event.stopPropagation();
 
         const index = this.dataset.index;
-        this.textContent = game.getPlayer();
+        
+        this.textContent = this.textContent == '' ? game.getPlayer() : this.textContent;
 
         const end = game.playTurn(index);
+        
         if (end != -1) {
             const score = document.getElementById(game.getPlayer());
             const draw = document.getElementById('draw');
